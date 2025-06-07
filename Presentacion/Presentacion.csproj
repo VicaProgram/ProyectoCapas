@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7EF87AD7-6063-4426-8CB7-F9B9BA17B059}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Presentacion</RootNamespace>
+    <AssemblyName>Presentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AAClases\Filtrar.cs" />
+    <Compile Include="AAClases\ValidaRut.cs" />
+    <Compile Include="Arriendo\PArr_Ing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Arriendo\PArr_Ing.Designer.cs">
+      <DependentUpon>PArr_Ing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\PCli_Act.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\PCli_Act.Designer.cs">
+      <DependentUpon>PCli_Act.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\PCli_Con.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\PCli_Con.Designer.cs">
+      <DependentUpon>PCli_Con.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\PCli_Ing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\PCli_Ing.Designer.cs">
+      <DependentUpon>PCli_Ing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion.cs" />
+    <Compile Include="Localidad\PCom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Localidad\PCom.Designer.cs">
+      <DependentUpon>PCom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Localidad\PPro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Localidad\PPro.Designer.cs">
+      <DependentUpon>PPro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Localidad\PReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Localidad\PReg.Designer.cs">
+      <DependentUpon>PReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernStyles.cs" />
+    <Compile Include="Producto\PProd_Act.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\PProd_Act.Designer.cs">
+      <DependentUpon>PProd_Act.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\PProd_Act2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\PProd_Act2.Designer.cs">
+      <DependentUpon>PProd_Act2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\PProd_Con.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\PProd_Con.Designer.cs">
+      <DependentUpon>PProd_Con.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\PProd_Ing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\PProd_Ing.Designer.cs">
+      <DependentUpon>PProd_Ing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor\PProv_Act.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\PProv_Act.Designer.cs">
+      <DependentUpon>PProv_Act.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\PProv_Con.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\PProv_Con.Designer.cs">
+      <DependentUpon>PProv_Con.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\PProv_Ing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\PProv_Ing.Designer.cs">
+      <DependentUpon>PProv_Ing.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Arriendo\PArr_Ing.resx">
+      <DependentUpon>PArr_Ing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\PCli_Act.resx">
+      <DependentUpon>PCli_Act.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\PCli_Con.resx">
+      <DependentUpon>PCli_Con.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\PCli_Ing.resx">
+      <DependentUpon>PCli_Ing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localidad\PCom.resx">
+      <DependentUpon>PCom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localidad\PPro.resx">
+      <DependentUpon>PPro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localidad\PReg.resx">
+      <DependentUpon>PReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\PProd_Act.resx">
+      <DependentUpon>PProd_Act.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\PProd_Act2.resx">
+      <DependentUpon>PProd_Act2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\PProd_Con.resx">
+      <DependentUpon>PProd_Con.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\PProd_Ing.resx">
+      <DependentUpon>PProd_Ing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Proveedor\PProv_Act.resx">
+      <DependentUpon>PProv_Act.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\PProv_Con.resx">
+      <DependentUpon>PProv_Con.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\PProv_Ing.resx">
+      <DependentUpon>PProv_Ing.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidad\Entidad.csproj">
+      <Project>{5388fa8a-5efe-4e5c-aab9-b3d66c5396cd}</Project>
+      <Name>Entidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{461238b8-9c30-4125-8e08-6bf163079511}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

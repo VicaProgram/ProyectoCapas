@@ -1,0 +1,149 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Pweb.SiteMaster" %> <!-- Directiva del Master Page: define que se usa C#, habilita el auto-wiring de eventos, usa el archivo code-behind "Site.master.cs" y hereda de "Pweb.SiteMaster" -->
+<!-- Define una página maestra en ASP.NET con C#, que permite contenido dinámico -->
+
+<!DOCTYPE html> <!-- Declaración del doctype: HTML5 -->
+<html> <!-- Elemento raíz del documento HTML -->
+<head> <!-- Sección de encabezado: Contiene meta-datos, enlaces a estilos y scripts, y placeholders para contenido dinámico -->
+    <title>Sistema</title> <!-- Título de la página que se muestra en la pestaña del navegador -->
+    <meta charset="utf-8"> <!-- Define la codificación de caracteres (UTF-8) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Configura la vista para dispositivos móviles -->
+
+    <!-- Enlace a hojas de estilo externas -->
+    <link href="Assets/Plugins/Bootstrap.4.5.2/bootstrap.min.css" rel="stylesheet" /> <!-- Bootstrap: estilos y diseño responsivo -->
+    <link href="Assets/Plugins/Sweetalert2/sweetalert.css" rel="stylesheet" /> <!-- Sweetalert: estilos para alertas -->
+    <link href="Assets/Plugins/Fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet" /> <!-- FontAwesome: íconos -->
+    <link href="Assets/Plugins/Bootstrap-icons-1.2.2/font/bootstrap-icons.css" rel="stylesheet" /> <!-- Bootstrap Icons: íconos -->
+    <link href="Assets/Plugins/Jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" /> <!-- jQuery UI: estilos para widgets y componentes -->
+    <link href="Assets/Plugins/Datatables-buttons/CSS/buttons.dataTables.min.css" rel="stylesheet" /> <!-- DataTables Buttons: estilos para exportación y botones -->
+
+    <!-- Inclusión de scripts externos -->
+    <script src="Assets/Plugins/Jquery/jquery.3.5.1.min.js"></script> <!-- jQuery: biblioteca base JavaScript -->
+    <script src="Assets/Plugins/Bootstrap.4.5.2/bootstrap.min.js"></script> <!-- Bootstrap JavaScript: funcionalidad de componentes -->
+    <script src="Assets/Plugins/Sweetalert2/sweetalert.js"></script> <!-- Sweetalert: funcionalidad para alertas emergentes -->
+    <script src="Assets/Plugins/Fontawesome-free-5.15.1-web/JS/all.js"></script> <!-- FontAwesome: manejo de íconos -->
+
+    <!-- Enlace a hojas de estilo adicionales para DataTables -->
+    <link href="Assets/Plugins/Datatables/CSS/jquery.dataTables.min.css" rel="stylesheet" /> <!-- DataTables: estilos básicos de la tabla -->
+    <link href="Assets/Plugins/Datatables/CSS/rowReorder.dataTables.min.css" rel="stylesheet" /> <!-- DataTables: estilos para reordenar filas -->
+    <link href="Assets/Plugins/Datatables/CSS/responsive.dataTables.min.css" rel="stylesheet" /> <!-- DataTables: estilos responsivos -->
+    <link href="Assets/Plugins/DataTables_checkboxes/CSS/dataTables.checkboxes.css" rel="stylesheet" /> <!-- DataTables: estilos para checkboxes -->
+    <link href="css/IniciarSesion/Nav.css" rel="stylesheet" /> <!-- Estilos personalizados para la navegación -->
+
+    <!-- Inclusión de scripts para DataTables -->
+    <script src="Assets/Plugins/Datatables/JS/jquery.dataTables.min.js"></script> <!-- DataTables: funcionalidad básica de tablas -->
+    <script src="Assets/Plugins/Datatables/Js/dataTables.rowReorder.min.js"></script> <!-- DataTables: permite reordenar filas -->
+    <script src="Assets/Plugins/Datatables/JS/dataTables.responsive.min.js"></script> <!-- DataTables: hace las tablas responsivas -->
+    <script src="Assets/Plugins/DataTables_checkboxes/JS/dataTables.checkboxes.min.js"></script> <!-- DataTables: soporte para checkboxes en tablas -->
+    <script src="Assets/Plugins/Datatables-buttons/JS/dataTables.buttons.min.js"></script> <!-- DataTables: funcionalidades para botones de exportación -->
+    <script src="Assets/Plugins/Datatables-buttons/JS/buttons.flash.min.js"></script> <!-- DataTables: exportación en formato Flash -->
+    <script src="Assets/Plugins/Datatables-buttons/JS/jszip.min.js"></script> <!-- DataTables: biblioteca para crear archivos ZIP en exportaciones -->
+    <script src="Assets/Plugins/Datatables-buttons/JS/pdfmake.min.js"></script> <!-- DataTables: biblioteca para exportar en PDF -->
+    <script src="Assets/Plugins/Datatables-buttons/JS/vfs_fonts.js"></script> <!-- DataTables: fuentes para PDFMake -->
+    <script src="Assets/Plugins/Datatables-buttons/JS/buttons.html5.min.js"></script> <!-- DataTables: exportación usando HTML5 -->
+    <script src="Assets/Plugins/Datatables-buttons/JS/buttons.print.min.js"></script> <!-- DataTables: funcionalidad de impresión -->
+    <script src="Assets/Plugins/Jquery-ui-1.12.1/jquery-ui.js"></script> <!-- jQuery UI: funcionalidades de UI -->
+    
+    <!-- Espacio entre ícono y texto -->
+    <!-- Añade un margen a la derecha de cada ícono para separarlo del texto -->
+    <style>
+        i::before { margin-right: 5px; } 
+    </style>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder> <!-- Placeholder ASP.NET para contenido adicional en el head -->
+</head>
+<body> <!-- Inicio del cuerpo del documento -->
+    <div class="d-flex"> <!-- Contenedor flexible (Bootstrap) que aloja la barra lateral y el contenido principal -->
+        <nav class="sidebar" id="sidebar"> <!-- Barra lateral de navegación -->
+            <div class="sidebar-header"> <!-- Encabezado de la barra lateral -->
+                <h3 id="sidebarTitle" data-toggle="tooltip" title="Sistema"> <!-- Título con tooltip; muestra "Sistema" -->
+                    <a href="WPInicio.aspx" style="text-decoration: none; color: inherit;">Sistema</a> <!-- Enlace al inicio con estilos para eliminar subrayado y mantener el color -->
+                </h3>
+                <span class="collapse-toggle" id="collapseToggle"> <!-- Botón o área clickeable para alternar (colapsar/expandir) la barra lateral -->
+                    <i class="bi bi-arrow-left-right"></i> <!-- Ícono representativo de colapso/expansión -->
+                </span>
+            </div>
+
+            <div class="flex-grow-1"> <!-- Contenedor que se expande para llenar el espacio restante -->
+                <ul class="nav flex-column"> <!-- Lista de navegación dispuesta en columna -->
+                    <li class="nav-item dropdown"> <!-- Elemento de lista con menú desplegable para "Localidad" -->
+                        <a class="nav-link" href="#" id="localidadLink" data-toggle="tooltip" title="Localidad">
+                            <i class="bi bi-geo-alt"></i><span class="menu-text">Localidad</span> <!-- Ícono y texto que indican la opción "Localidad" -->
+                            <i class="bi bi-chevron-down dropdown-icon"></i> <!-- Ícono que indica que hay un submenú -->
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="localidadLink"> <!-- Contenedor del menú desplegable vinculado al enlace "Localidad" -->
+                            <a class="dropdown-item" href="PWJLocRegi.aspx" data-toggle="tooltip" title="Región">
+                                <i class="bi bi-globe"></i><span class="menu-text">Región</span> <!-- Elemento del menú: opción "Región" con ícono -->
+                            </a>
+                            <a class="dropdown-item" href="PWJLocProv.aspx" data-toggle="tooltip" title="Provincia">
+                                <i class="bi bi-map"></i><span class="menu-text">Provincia</span> <!-- Elemento del menú: opción "Provincia" con ícono -->
+                            </a>
+                            <a class="dropdown-item" href="PWJLocComu.aspx" data-toggle="tooltip" title="Comuna">
+                                <i class="bi bi-house"></i><span class="menu-text">Comuna</span> <!-- Elemento del menú: opción "Comuna" con ícono -->
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Enlaces de navegación secundarios -->
+                    <li class="nav-item"><a class="nav-link" href="PWJCliente.aspx" data-toggle="tooltip" title="Cliente"><i class="bi bi-people"></i><span class="menu-text">Cliente</span></a></li> <!-- Enlace: Cliente -->
+                    <li class="nav-item"><a class="nav-link" href="PWJProv.aspx" data-toggle="tooltip" title="Proveedor"><i class="bi bi-truck"></i><span class="menu-text">Proveedor</span></a></li> <!-- Enlace: Proveedor -->
+                    <li class="nav-item"><a class="nav-link" href="PWJProd.aspx" data-toggle="tooltip" title="Productos"><i class="bi bi-bag"></i><span class="menu-text">Productos</span></a></li> <!-- Enlace: Productos -->
+                    <li class="nav-item"><a class="nav-link" href="PWJArriendo.aspx" data-toggle="tooltip" title="Arriendo"><i class="bi bi-building"></i><span class="menu-text">Arriendo</span></a></li> <!-- Enlace: Arriendo -->
+                </ul>
+            </div>
+
+            <div class="sidebar-footer"> <!-- Sección final de la barra lateral para el botón de cerrar sesión -->
+                <a class="nav-link" href="javascript:CerrarSesion();" data-toggle="tooltip" title="Salir">
+                    <i class="bi bi-box-arrow-right"></i><span class="menu-text">Salir</span> <!-- Enlace que activa la función para cerrar sesión -->
+                </a>
+            </div>
+        </nav>
+
+        <div class="container-fluid"> <!-- Contenedor principal para el contenido dinámico, de ancho completo -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder> <!-- Placeholder ASP.NET donde se carga el contenido específico de cada página -->
+        </div>
+    </div>
+
+    <!-- Inclusión de scripts adicionales -->
+    <script src="JS/Utilidades.js"></script> <!-- Script de utilidades personalizadas -->
+    <script src="Assets/Plugins/Loadingoverlay/loadingoverlay.js"></script> <!-- Plugin para mostrar una superposición de carga -->
+
+    <script>
+        $(document).ready(function () { // Ejecuta cuando el documento se haya cargado por completo
+            $('[data-toggle="tooltip"]').tooltip(); // Inicializa todos los tooltips en elementos que tengan el atributo data-toggle="tooltip"
+
+            $('#collapseToggle').click(function () { // Asigna evento al clic en el botón de colapso de la barra lateral
+                $('#sidebar').toggleClass('collapsed'); // Alterna la clase "collapsed" del sidebar para colapsarlo o expandirlo
+                if ($('#sidebar').hasClass('collapsed')) { // Si la barra lateral está colapsada
+                    $('#sidebarTitle').html('<i class="bi bi-app-indicator"></i>'); // Muestra solo el ícono en el título
+                    $('.nav-item.dropdown').removeClass('show'); // Cierra cualquier menú desplegable abierto
+                } else { // Si la barra lateral está expandida
+                    $('#sidebarTitle').text('Sistema'); // Restaura el texto del título
+                }
+            });
+
+            $('.dropdown-icon').click(function (e) { // Gestor de clic para el ícono que despliega el menú
+                e.preventDefault(); // Previene la acción por defecto del enlace
+                e.stopPropagation(); // Evita que el evento se propague a elementos padres
+                $(this).closest('.nav-item.dropdown').toggleClass('show'); // Alterna la visibilidad (clase "show") del submenú
+            });
+
+            $('.nav-item.dropdown > .nav-link').click(function (e) { // Asigna evento al clic en el enlace interno de un dropdown
+                if ($(this).attr('href') === "#") { // Verifica si el enlace es de tipo dummy (sin navegación)
+                    e.preventDefault(); // Previene la acción de navegación
+                    $(this).closest('.nav-item.dropdown').toggleClass('show'); // Alterna la visibilidad del menú desplegable
+                }
+            });
+        });
+
+        function CerrarSesion() { // Función para cerrar la sesión del usuario
+            AjaxGet("../WPInicio.aspx/CerrarSesion", // Realiza una llamada Ajax al método de cierre de sesión en el servidor
+                function (response) {
+                    if (response.estado) {
+                        window.location.href = 'WPLogin.aspx'; // Redirige a la página de login si la sesión se cerró correctamente
+                    }
+                }
+            );
+        }
+    </script>
+</body>
+</html> <!-- Fin del documento HTML -->

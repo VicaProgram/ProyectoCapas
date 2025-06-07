@@ -1,0 +1,337 @@
+﻿/* Estilos generales */
+body { /* Selecciona el elemento body */
+    background-color: #f8f9fa; /* Establece un color de fondo claro para el body */
+}
+
+/* Sidebar base */
+.sidebar { /* Estilos para el sidebar */
+    width: 250px; /* Ancho del sidebar en estado normal */
+    background-color: #2c4838; /* Color de fondo del sidebar (verde oscuro) */
+    border-right: 2px solid #4CAF50; /* Borde derecho de 2px con color verde (#4CAF50) */
+    min-height: 100vh; /* Altura mínima del sidebar igual a la altura del viewport */
+    transition: width 0.3s ease; /* Transición suave para el cambio de ancho */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    display: flex; /* Utiliza flexbox para el layout interno */
+    flex-direction: column; /* Organiza los elementos hijos en columna */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Ancho expandido */
+    height: 100vh;
+    z-index: 1000;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+}
+
+nav.sidebar {
+    background-color: #2c4838; /* Ejemplo de un fondo verde */
+}
+    /* Sidebar colapsado */
+    nav.sidebar.collapsed {
+        width: 60px; /* Ancho reducido */
+    }
+
+/* Contenedor principal: se desplaza para no quedar debajo del nav */
+.container-fluid {
+    width: calc(100% - 250px);
+    margin-left: 250px; /* Empieza después del sidebar */
+    padding: 20px;
+}
+
+/* Al colapsar el sidebar, el contenido se ajusta */
+nav.sidebar.collapsed ~ .container-fluid {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+}
+
+/* Cabecera del sidebar con contenedor en columna */
+.sidebar-header { /* Estilos para la cabecera del sidebar */
+    padding: 1.5rem; /* Espaciado interno de 1.5 rem en todos los lados */
+    display: flex; /* Usa flexbox para la organización interna */
+    flex-direction: column; /* Ordena los elementos en columna */
+    align-items: center; /* Centra horizontalmente los elementos */
+    background-color: #2c4838; /* Mismo color de fondo que el sidebar */
+    color: #4CAF50; /* Color del texto en verde (#4CAF50) */
+    position: relative; /* Posicionamiento relativo para elementos posicionados en forma absoluta */
+}
+
+    .sidebar-header h3 { /* Estilos para el elemento h3 dentro de la cabecera */
+        margin: 0; /* Elimina márgenes por defecto */
+        margin-top: 20px; /* Agrega margen superior de 20px para mover el título hacia abajo */
+        transition: transform 0.3s; /* Transición suave para transformaciones (hover) */
+        cursor: pointer; /* Muestra cursor pointer para indicar interactividad */
+    }
+
+        .sidebar-header h3:hover { /* Efecto hover para el h3 */
+            transform: scale(1.1); /* Aumenta el tamaño del h3 al 110% al pasar el mouse */
+        }
+
+/* Botón de colapso: ubicado en la esquina superior derecha */
+.collapse-toggle { /* Estilos para el botón de colapso del sidebar */
+    position: absolute; /* Posicionamiento absoluto respecto a la cabecera */
+    top: 10px; /* Distancia de 10px desde el borde superior */
+    right: 10px; /* Distancia de 10px desde el borde derecho */
+    color: #fff; /* Color del icono en blanco */
+    cursor: pointer; /* Cursor pointer para indicar que es clickeable */
+    font-size: 1.2rem; /* Tamaño de fuente de 1.2 rem */
+}
+
+/* Contenedor de navegación (empuja el footer hacia abajo) */
+.flex-grow-1 { /* Clase que permite que el contenedor crezca para ocupar el espacio disponible */
+    flex-grow: 1; /* Hace que el elemento ocupe el espacio restante */
+}
+
+/* Menú de navegación */
+.nav { /* Estilo para la lista de navegación */
+    list-style: none; /* Elimina viñetas predeterminadas de la lista */
+    padding: 0; /* Elimina el padding por defecto */
+    margin: 0; /* Elimina el margen por defecto */
+}
+
+.nav-item { /* Estilo para cada elemento de la lista de navegación */
+    border-radius: 4px; /* Bordes ligeramente redondeados de 4px */
+    margin: 5px; /* Margen de 5px alrededor de cada ítem */
+    transition: background-color 0.3s; /* Transición suave para cambios en el fondo */
+    position: relative; /* Posicionamiento relativo para posicionar elementos hijos */
+}
+
+    .nav-item:hover { /* Efecto hover sobre cada ítem de navegación */
+        background-color: rgba(255, 152, 0, 0.2); /* Cambia el fondo a un tono naranja semitransparente */
+    }
+
+.nav-link { /* Estilo para los enlaces dentro del menú */
+    display: flex; /* Usa flexbox para alinear ícono y texto */
+    align-items: center; /* Centra verticalmente el contenido del enlace */
+    padding: 0.75rem 1.5rem; /* Padding vertical de 0.75 rem y horizontal de 1.5 rem */
+    color: #fff; /* Color del texto en blanco */
+    text-decoration: none; /* Elimina subrayado del enlace */
+    transition: color 0.3s; /* Transición suave para el cambio de color */
+    position: relative; /* Posiciona el enlace de forma relativa */
+}
+
+    .nav-link:hover { /* Efecto hover sobre los enlaces */
+        color: #4CAF50; /* Cambia el color del texto a verde */
+        font-weight: bold; /* Aplica negrita al texto */
+    }
+
+/* Texto de menú */
+.menu-text { /* Estilo para el texto dentro del enlace */
+    margin-left: 10px; /* Agrega un margen izquierdo para separar del ícono */
+    transition: opacity 0.3s; /* Transición suave para cambios en la opacidad */
+}
+
+/* Ocultar el texto en estado colapsado */
+.sidebar.collapsed .menu-text { /* Cuando el sidebar está colapsado, afecta al texto del menú */
+    display: none; /* Oculta el texto para ahorrar espacio */
+}
+
+/* Tooltip custom al hover en estado colapsado */
+.sidebar.collapsed .nav-link:hover .menu-text { /* Muestra el texto como tooltip cuando se hace hover en un enlace del sidebar colapsado */
+    display: block; /* Asegura que el texto se muestre */
+    position: absolute; /* Posiciona el tooltip de forma absoluta */
+    left: 70px; /* Posición horizontal: a la derecha del área colapsada */
+    top: 50%; /* Posición vertical: centrado respecto al enlace */
+    transform: translateY(-50%); /* Ajuste para centrar verticalmente el tooltip */
+    background-color: #2c4838; /* Mismo fondo del sidebar */
+    padding: 5px 10px; /* Padding interno para el tooltip */
+    border: 1px solid #4CAF50; /* Borde verde alrededor del tooltip */
+    border-radius: 4px; /* Bordes redondeados para el tooltip */
+    white-space: nowrap; /* Evita el salto de línea en el texto del tooltip */
+    z-index: 1000; /* Coloca el tooltip por encima de otros elementos */
+}
+
+/* Dropdown dentro del sidebar */
+.dropdown-menu { /* Estilos para el menú desplegable */
+    background-color: #2c4838; /* Fondo que coincide con el sidebar */
+    border: 1px solid #4CAF50; /* Borde de 1px en color verde */
+    border-radius: 4px; /* Bordes redondeados de 4px */
+    margin: 5px; /* Margen de 5px alrededor del menú */
+    padding: 0; /* Padding interno a 0 */
+    display: none; /* Oculto por defecto */
+    position: relative; /* Posicionamiento relativo */
+    z-index: 100; /* Nivel de apilamiento para superposición */
+    max-width: 200px; /* Ancho máximo de 200px */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+}
+
+.nav-item.dropdown.show .dropdown-menu { /* Cuando un ítem de dropdown está activo */
+    display: block; /* Muestra el menú desplegable */
+}
+
+.dropdown-item { /* Estilos para cada ítem del dropdown */
+    padding: 0.5rem 1rem; /* Padding vertical de 0.5 rem y horizontal de 1 rem */
+    padding-left: 2.5rem; /* Aumenta el padding izquierdo para crear indentación */
+    color: #fff; /* Color del texto en blanco */
+    transition: background-color 0.3s; /* Transición suave para el cambio de fondo */
+}
+
+    .dropdown-item:hover { /* Efecto hover sobre los ítems del dropdown */
+        background-color: rgba(255, 152, 0, 0.5); /* Fondo naranja semitransparente al pasar el mouse */
+    }
+
+/* Ajustar la posición de la flecha del dropdown */
+.dropdown-icon { /* Estilos para el icono indicador del dropdown */
+    margin-left: auto; /* Empuja el icono hacia el extremo derecho */
+    margin-right: 0.5rem; /* Pequeño margen a la derecha para separación */
+    transition: transform 0.3s ease; /* Transición en la transformación (rotación) */
+}
+
+/* Se eliminó el margen superior en estado colapsado para que la flecha se vea completa */
+.sidebar.collapsed .dropdown-icon { /* En estado colapsado, ajusta el icono del dropdown */
+    margin-top: 0; /* Elimina el margen superior */
+}
+
+.nav-item.dropdown.show .dropdown-icon { /* Cuando el dropdown está abierto */
+    transform: rotate(180deg); /* Rota el icono 180 grados para indicar estado activo */
+}
+
+/* Footer del sidebar: botón "Salir" siempre al fondo */
+.sidebar-footer { /* Estilos para el footer del sidebar */
+    padding: 1rem; /* Padding de 1 rem en todos los lados */
+}
+
+    .sidebar-footer a { /* Estilos para los enlaces dentro del footer */
+        display: flex; /* Usa flexbox para alinear contenido */
+        align-items: center; /* Centra verticalmente los elementos */
+        color: #fff; /* Color del texto en blanco */
+        text-decoration: none; /* Elimina subrayado del texto */
+    }
+
+.sidebar.collapsed .sidebar-footer .menu-text { /* En estado colapsado, oculta el texto del footer */
+    display: none; /* No muestra el texto */
+}
+
+.sidebar.collapsed .sidebar-footer a { /* En estado colapsado, ajusta el contenido de los enlaces en el footer */
+    justify-content: center; /* Centra el contenido horizontalmente */
+}
+
+#btnNuevo:hover { /* Efecto hover para el botón con ID "btnNuevo" */
+    background-color: #4CAF50 !important; /* Cambia el fondo a verde (con prioridad !important) */
+    color: #ffffff !important; /* Cambia el color del texto a blanco (con prioridad !important) */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para cambio de fondo y texto */
+}
+
+/* Estilos globales adicionales */
+/* --- Botón Cerrar del Modal --- */
+.modal-header .close { /* Estilos para el botón de cerrar en el encabezado del modal */
+    border-radius: 50%; /* Hace el botón circular */
+    background-color: #4CAF50; /* Fondo verde (o el color que prefieras) */
+    width: 30px; /* Ancho fijo de 30px */
+    height: 30px; /* Alto fijo de 30px */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    color: #fff; /* Color del texto o icono en blanco */
+    opacity: 1; /* Opacidad completa para buena visibilidad */
+    border: none; /* Elimina cualquier borde */
+}
+
+/* --- Hover para el botón "Guardar Cambios" --- */
+#btnGuardarCambios:hover { /* Efecto hover para el botón con ID "btnGuardarCambios" */
+    background-color: #45a045 !important; /* Cambia el fondo a un verde ligeramente más claro */
+    border-color: #45a045 !important; /* Cambia el color del borde a un verde similar */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave para fondo y borde */
+}
+
+/* --- Barra de Búsqueda Redonda --- */
+/* Si tienes un input con clase "search-bar" */
+.search-bar { /* Estilos para el input con clase "search-bar" */
+    border-radius: 50px; /* Bordes completamente redondeados (efecto "barra de búsqueda") */
+    border: 1px solid #4CAF50; /* Borde de 1px en color verde */
+    padding: 8px 15px; /* Padding de 8px vertical y 15px horizontal */
+}
+/* O si prefieres aplicar a todos los inputs de tipo search */
+input[type="search"] { /* Selecciona todos los inputs de tipo search */
+    border-radius: 50px; /* Bordes redondeados */
+    border: 1px solid #4CAF50; /* Borde verde */
+    padding: 8px 15px; /* Padding interno para mayor comodidad */
+}
+
+.dropdown-item i { /* Aplica estilos a los íconos dentro de elementos con clase dropdown-item */
+    margin-right: 8px; /* Espacio de 8px a la derecha del ícono */
+}
+
+/* Estilos para el Modal con esquinas redondeadas */
+.modal-dialog { /* Estilos para el contenedor del modal */
+    max-width: 500px; /* Ancho máximo */
+    margin: 10vh auto; /* Margen vertical y centrado horizontal */
+}
+
+.modal-content { /* Estilos para el contenido interno del modal */
+    border-radius: 20px !important; /* Bordes redondeados con prioridad !important */
+    overflow: hidden; /* Oculta el contenido desbordante para un mejor ajuste */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para crear profundidad */
+}
+
+/* Opcional: si deseas redondear los botones del modal */
+.modal-header .close { /* Se vuelve a definir el estilo del botón de cerrar del modal */
+    border-radius: 50%; /* Mantiene formato circular */
+    background-color: #4CAF50; /* Fondo verde */
+    width: 30px; /* Ancho*/
+    height: 30px; /* Alto*/
+    display: flex; /* Usa flexbox para centrar el contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    color: #fff; /* Color del contenido en blanco */
+    opacity: 1; /* Opacidad completa */
+    border: none; /* Sin borde */
+}
+
+.modal-footer button { /* Estilos para los botones ubicados en el pie del modal */
+    border-radius: 20px; /* Bordes redondeados*/
+}
+
+/* Efecto hover para el botón Guardar Cambios */
+#btnGuardarCambios:hover { /* Reitera efecto hover para el botón Guardar Cambios */
+    background-color: #45a045 !important; /* Cambia el fondo a verde claro */
+    border-color: #45a045 !important; /* Cambia el color del borde a verde claro */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave para ambos cambios */
+}
+
+@font-face { /* Define una fuente personalizada */
+    font-family: 'PressStart2P'; /* Asigna el nombre 'PressStart2P' a la fuente */
+    src: url('../../Assets/fonts/PressStart2P.ttf') format('truetype'); /* Especifica la ruta y formato de la fuente */
+    font-weight: normal; /* Peso normal de la fuente */
+    font-style: normal; /* Sin estilos inclinados */
+}
+
+html, body { /* Aplica estilos al elemento html y al body */
+    font-family: 'PressStart2P', sans-serif; /* Usa la fuente personalizada con fallback a sans-serif */
+    font-size: 14px; /* Define el tamaño base de fuente*/
+}
+
+/* Panel lateral oculto inicialmente a la izquierda */
+.side-panel {
+    position: fixed; /* Fija el panel respecto a la ventana */
+    top: 0; /* Lo posiciona en el borde superior */
+    left: -400px; /* Lo coloca 400px a la izquierda, fuera de la vista */
+    width: 400px; /* Define un ancho fijo de 400px */
+    height: 100%; /* Ocupa el 100% de la altura de la ventana */
+    background-color: #ffffff; /* Establece el fondo blanco */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5); /* Añade sombra para dar profundidad */
+    transition: left 0.3s ease; /* Anima el cambio de la propiedad left en 0.3s */
+    z-index: 1050; /* Asegura que el panel se superponga a otros elementos */
+}
+
+    /* Cuando el panel está activo, se desliza hacia la vista */
+    .side-panel.active {
+        left: 0; /* Coloca el panel en left: 0 (completamente visible) */
+    }
+
+/* Contenedor interno del panel (con espacio para el botón "X") */
+.side-panel-content {
+    position: relative; /* Permite posicionar elementos internos de forma absoluta */
+    padding: 20px; /* Añade un espacio interno de 20px en todos los lados */
+}
+
+/* Botón de cerrar (la "X") en la esquina superior derecha */
+.close-btn {
+    position: absolute; /* Se posiciona de forma absoluta respecto al contenedor relativo */
+    top: 10px; /* Ubica el botón a 10px del borde superior */
+    right: 10px; /* Ubica el botón a 10px del borde derecho */
+    background: transparent; /* Fondo transparente para no interferir visualmente */
+    border: none; /* Sin borde */
+    font-size: 20px; /* Tamaño de fuente de 20px para hacer visible la "X" */
+    color: #333; /* Color gris oscuro para el texto del botón */
+    cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
+}

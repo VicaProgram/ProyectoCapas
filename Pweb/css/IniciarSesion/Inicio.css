@@ -1,0 +1,103 @@
+﻿/* HERO BANNER */
+.hero-banner {
+    /* Establece una imagen de fondo sin repetición, centrada horizontal y verticalmente */
+    background: url('https://img.freepik.com/free-vector/watercolor-emerald-background_23-2150270303.jpg?t=st=1746238382~exp=1746241982~hmac=7340c5ea7f9aaee9239c2c7f26f0edbc0cb9a76a505adfe72b07aebe5fe9c8c1&w=996') no-repeat center center;
+    /* Hace que el fondo cubra todo el contenedor */
+    background-size: cover;
+    /* Permite posicionar elementos internos en relación a este contenedor */
+    position: relative;
+    /* Aplica un padding vertical de 120px y ninguno horizontal */
+    padding: 120px 0;
+    /* Define el color del texto en blanco */
+    color: #fff;
+    /* Centra horizontalmente el texto */
+    text-align: center;
+}
+
+    .hero-banner::after {
+        /* Crea un pseudoelemento vacío */
+        content: "";
+        /* Posiciona el pseudoelemento de forma absoluta respecto a .hero-banner */
+        position: absolute;
+        /* Establece sus bordes superior, izquierdo, derecho y inferior a 0 para cubrir totalmente el contenedor */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Aplica una capa semitransparente negra para oscurecer el fondo */
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-banner .content {
+        /* Permite que el contenido se posicione de forma relativa dentro de .hero-banner */
+        position: relative;
+        /* Asegura que este contenido quede por encima del pseudoelemento ::after */
+        z-index: 1;
+    }
+
+    .hero-banner h1 {
+        /* Define un tamaño de fuente grande para el título */
+        font-size: 3rem;
+        /* Aplica un margen inferior para separar el título del siguiente elemento */
+        margin-bottom: 20px;
+    }
+
+    .hero-banner p {
+        /* Establece un tamaño de fuente mediano para los párrafos */
+        font-size: 1.5rem;
+    }
+
+/* BENEFITS */
+.benefits {
+    /* Aplica padding vertical de 60px y horizontal de 20px */
+    padding: 60px 20px;
+}
+
+.benefit-icon {
+    /* Define un tamaño de fuente grande para los íconos de beneficio */
+    font-size: 48px;
+    /* Asigna el color verde para los íconos */
+    color: #4CAF50;
+    /* Agrega un margen inferior para separar el ícono del siguiente contenido */
+    margin-bottom: 20px;
+}
+
+/* CATALOG */
+.catalog {
+    /* Aplica padding de 60px vertical y 20px horizontal */
+    padding: 60px 20px;
+    /* Asigna un fondo claro */
+    background-color: #f8f9fa;
+}
+
+    .catalog .product {
+        /* Define un margen inferior para separar cada producto */
+        margin-bottom: 30px;
+    }
+
+/* TESTIMONIALS */
+.testimonials {
+    /* Aplica padding de 60px vertical y 20px horizontal */
+    padding: 60px 20px;
+}
+
+.testimonial {
+    /* Define un fondo ligeramente gris para la caja de testimonial */
+    background: #f1f1f1;
+    /* Añade 30px de padding en todos los lados */
+    padding: 30px;
+    /* Agrega un margen inferior para separar las cajas */
+    margin-bottom: 30px;
+    /* Redondea las esquinas de la caja */
+    border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+    /* Establece un fondo oscuro para el pie de página */
+    background-color: #343a40;
+    /* Define el color del texto en blanco */
+    color: #fff;
+    /* Aplica padding vertical de 20px */
+    padding: 20px 0;
+}
